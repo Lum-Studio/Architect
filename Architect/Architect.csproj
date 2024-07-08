@@ -4,18 +4,41 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BlazorWebAssemblyBasePath>/repository/</BlazorWebAssemblyBasePath> <!-- Base path for GitHub Pages -->
+  </PropertyGroup>
+
+  <!-- Development settings -->
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>DEBUG</DefineConstants>
+    <BlazorWebAssemblyEnableLinking>false</BlazorWebAssemblyEnableLinking>
+    <RunAOTCompilation>false</RunAOTCompilation>
+  </PropertyGroup>
+
+  <!-- Production settings -->
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DefineConstants>RELEASE</DefineConstants>
+    <BlazorWebAssemblyEnableLinking>true</BlazorWebAssemblyEnableLinking>
+    <RunAOTCompilation>true</RunAOTCompilation>
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fluxor" Version="6.0.0" />
-    <PackageReference Include="Fluxor.Blazor.Web" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" />
-    <PackageReference Include="MudBlazor" Version="6.20.0" />
+    <PackageReference Include="Fluxor" Version="6.0.0"/>
+    <PackageReference Include="Fluxor.Blazor.Web" Version="6.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5"/>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" Condition="'$(Configuration)'=='Debug'"/>
+    <PackageReference Include="MudBlazor" Version="6.20.0"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\css\app.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\app.css"/>
   </ItemGroup>
+
+  <!-- Brotli compression for production -->
+  <Target Name="EnableBrotliCompression" Condition="'$(Configuration)'=='Release'">
+    <Exec Command="dotnet publish --configuration Release --output ./bin/Release/net8.0/publish"/>
+    <Exec Command="brotli ./bin/Release/net8.0/publish/wwwroot/_framework/*.dll"/>
+  </Target>
 
 </Project>

@@ -1,0 +1,12 @@
+﻿@namespace Architect.Layout
+@using Architect.Services
+@inherits Fluxor.Blazor.Web.Components.FluxorLayout
+
+<MudLayout Class="page">
+    <MudThemeProvider Theme="@ThemeService.DefaultTheme" IsDarkMode="ThemeState.Value.IsDarkMode"/>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+

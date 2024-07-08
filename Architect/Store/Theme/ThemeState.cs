@@ -7,7 +7,7 @@ public class ThemeState
 
     public ThemeState()
     {
-        IsDarkMode = false;
+        IsDarkMode = true;
     }
 
     public ThemeState(bool isDarkMode)
