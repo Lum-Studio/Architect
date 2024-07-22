@@ -1,12 +1,10 @@
 ﻿@namespace Architect.Components
 @inherits Fluxor.Blazor.Web.Components.FluxorLayout
 
-
 <MudAppBar Fixed="true" DisableGutters="false" Elevation="0">
-        <MudLink Color="Color.Primary" Class="font-bold" Href="/" Underline="Underline.None">Architect</MudLink>
-        <MudSpacer/>
-        <MudIconButton Icon="@ButtonIcon" OnClick="ToggleTheme" ClickPropagation="false"/>
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Href="https://github.com/kumja1/Architect.git" />
-        
+    <MudLink Color="Color.Primary" Class="font-bold" Href="/" Underline="Underline.None">Architect</MudLink>
+    <MudSpacer/>
+    <MudIconButton Icon="@ButtonIcon" OnClick="OnClick" ClickPropagation="false"/>
+    <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Href="https://github.com/kumja1/Architect.git"/>
 </MudAppBar>
 

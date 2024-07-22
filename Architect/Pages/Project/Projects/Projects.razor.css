@@ -1,0 +1,16 @@
+/* Ensure .search-field class is specific enough to override MudBlazor styles */
+.search-field .mud-input-label {
+    background-color: transparent !important; /* Force background to transparent */
+    border: none !important; /* Remove border */
+    box-shadow: none !important; /* Remove shadow */
+    padding: 0 !important; /* Remove padding */
+}
+
+/* When the field is focused, revert background */
+.search-field .mud-input-label {
+    transition: background-color 0.2s ease-in-out; /* Smooth transition */
+}
+
+.search-field:focus-within .mud-input-label {
+    background-color: initial !important; /* Reset background to initial */
+}

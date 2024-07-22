@@ -1,10 +1,9 @@
 ﻿@namespace Architect.Layout
-@using Architect.Services
 @inherits Fluxor.Blazor.Web.Components.FluxorLayout
 
-<MudLayout Class="page">
+<MudLayout Style="position: relative; display: flex; flex-direction: column;">
     <MudThemeProvider Theme="@ThemeService.DefaultTheme" IsDarkMode="ThemeState.Value.IsDarkMode"/>
-    <MudMainContent>
+    <MudMainContent Style="flex:1">
         @Body
     </MudMainContent>
 </MudLayout>

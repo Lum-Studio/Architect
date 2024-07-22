@@ -23,22 +23,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fluxor" Version="6.0.0"/>
-    <PackageReference Include="Fluxor.Blazor.Web" Version="6.0.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5"/>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" Condition="'$(Configuration)'=='Debug'"/>
-    <PackageReference Include="MudBlazor" Version="6.20.0"/>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    <PackageReference Include="Fluxor" Version="6.0.0" />
+    <PackageReference Include="Fluxor.Blazor.Web" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="MudBlazor" Version="6.20.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.Blazor" Version="2.88.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\css\app.css"/>
+    <_ContentIncludedByDefault Remove="wwwroot\css\app.css" />
   </ItemGroup>
 
   <!-- Brotli compression for production -->
   <Target Name="EnableBrotliCompression" Condition="'$(Configuration)'=='Release'">
-    <Exec Command="dotnet publish --configuration Release --output ./bin/Release/net8.0/publish"/>
-    <Exec Command="brotli ./bin/Release/net8.0/publish/wwwroot/_framework/*.dll"/>
+    <Exec Command="dotnet publish --configuration Release --output ./bin/Release/net8.0/publish" />
+    <Exec Command="brotli ./bin/Release/net8.0/publish/wwwroot/_framework/*.dll" />
   </Target>
 
 </Project>

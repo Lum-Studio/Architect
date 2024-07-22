@@ -1,0 +1,24 @@
+@namespace Architect.Components
+
+<MudGrid>
+    @if (Items.Any()) {
+        @foreach (var item in Items)
+        {
+            <MudItem @onclick="OnClickHandler" Tag="@item.Id" xs="12" sm="6" md="4" lg="3">
+                <MudCard Elevation="1" Class="p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" Style="background:#2e3138;" Square="true">
+                 <MudCardHeader Class="flex justify-space-between">
+                        <MudText Typo="Typo.h6">@item.Name</MudText>
+                        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Class="mx-n5" />
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body1">@item.Description</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        }
+    } else {
+        <MudItem xs="12" Class="items-center justify-center">
+            <MudText Typo="Typo.body1" Class="text-slate-400 ">No projects available</MudText>
+      </MudItem>
+    }
+</MudGrid>

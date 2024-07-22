@@ -1,0 +1,31 @@
+@page "/projects"
+@namespace Architect.Pages
+
+<PageTitle>Projects</PageTitle>
+
+<MudContainer Class="mt-4">
+    <MudText Typo="Typo.h4" Class="font-bold mb-6">Projects</MudText>
+    
+    <MudGrid>
+        <MudItem xs="12" class="flex justify-end items-center gap-4 mb-2">
+            <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Outlined" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" Class="search-field" Margin="Margin.Dense" />
+                <MudIconButton Variant="Variant.Filled" Href="/create-project" Icon="@Icons.Material.Filled.Add" />
+        </MudItem>
+    </MudGrid>
+    
+    <MudDivider Class="my-4" />
+   
+    <div class="flex justify-end items-center mb-4">
+        <MudToggleGroup T="string" Outlined="true" Delimiters="true">
+            <MudToggleItem Value='"grid"'>
+                <MudIcon Icon="@Icons.Material.Filled.GridOn" Size="Size.Small" />
+            </MudToggleItem>
+            <MudToggleItem Value='"list"'>
+                <MudIcon Icon="@Icons.Material.Filled.ViewList" Size="Size.Small" />
+            </MudToggleItem>
+        </MudToggleGroup>
+    </div>
+    
+    <!-- Project Grid -->
+    <ItemGrid Items="_projects"/>
+</MudContainer>

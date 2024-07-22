@@ -1,14 +1,11 @@
 using Fluxor;
 
 [FeatureState]
-public class ThemeState
+public record ThemeState
 {
-    public bool IsDarkMode { get; private set; }
+    public bool IsDarkMode { get; init; } = true;
 
-    public ThemeState()
-    {
-        IsDarkMode = true;
-    }
+    public ThemeState() { }
 
     public ThemeState(bool isDarkMode)
     {
