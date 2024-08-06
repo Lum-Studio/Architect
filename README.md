@@ -1,3 +1,2 @@
 # Architect
-JSON-UI-Editor written in C#
-``
+Visual JSON-UI-Editor written in C#
